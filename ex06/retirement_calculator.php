@@ -23,22 +23,18 @@
 if (isset($_POST['submit'])) {
     // form submitted
     // validate input
-    if ((empty($_POST['number1']) || !trim($_POST['number2'])) || (empty($_POST['number1']) || !trim($_POST['number2']))) {
+    if ((empty($_POST['age']) || !trim($_POST['age'])) || (empty($_POST['ret_age']) || !trim($_POST['ret_age']))) {
         echo '<p>Please enter two numbers!';
     } else {
-        $number1 = (float)$_POST['number1'];
-        $number2 = (float)$_POST['number2'];
+        $age = (int)$_POST['age'];
+        $ret_age = (int)$_POST['ret_age'];
+        $y_left = $ret_age - $age;
+        $c_year = (int)date("Y");
+        $r_year = $c_year + $y_left;
 
         // Do the math
-        $sum = $number1 + $number2;
-        $diff = $number1 - $number2;
-        $prod = $number1 * $number2;
-        $quot = $number1 / $number2;
-
-        echo '<p>' . $number1 . ' + ' . $number2 . ' = ' . $sum . '</p>';
-        echo '<p>' . $number1 . ' - ' . $number2 . ' = ' . $diff . '</p>';
-        echo '<p>' . $number1 . ' * ' . $number2 . ' = ' . $prod . '</p>';
-        echo '<p>' . $number1 . ' / ' . $number2 . ' = ' . $quot . '</p>';
+        echo "<p>You are {$age} years. You have to wait {$y_left} years until you can retire.</p>";
+        echo "<p>It's {$c_year}, so you can retire in " . $r_year . "</p>";
     }
     // add back link
     echo '<p><a href="' . $_SERVER['PHP_SELF'] . '">Back</a></p>';
@@ -46,10 +42,10 @@ if (isset($_POST['submit'])) {
     // form not submitted
     // print the form
     echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">
-            <label for=\"number1\">Enter first number: </label>
-            <input type=\"text\" name=\"number1\" id=\"number1\">
-            <label for=\"number2\">Enter second number: </label>
-            <input type=\"text\" name=\"number2\" id=\"number2\">
+            <label for=\"age\">Enter your age: </label>
+            <input type=\"text\" name=\"age\" id=\"age\">
+            <label for=\"ret_age\">Enter the desired retirement age: </label>
+            <input type=\"text\" name=\"ret_age\" id=\"ret_age\">
             <input type=\"submit\" name=\"submit\" value=\"Calculate!\">
         </form>";
 }
