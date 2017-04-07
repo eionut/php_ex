@@ -1,2 +1,2 @@
-# Simple Math
-Write a program that prompts for two numbers. Print the sum, difference, product, and quotient of those numbers.
+# Retirement Calculator
+Create a program that determines how many years you have left until retirement and the year you can retire.

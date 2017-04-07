@@ -1,2 +1,2 @@
-# Mad Lib
-Create a simple mad-lib program that prompts for a noun, a verb, an adverb, and an adjective and injects those into a story that you create.
+# Simple Math
+Write a program that prompts for two numbers. Print the sum, difference, product, and quotient of those numbers.
