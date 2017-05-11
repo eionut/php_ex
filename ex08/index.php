@@ -20,28 +20,28 @@
 </head>
 <body>
 
-    <?php if (isset($_POST['submit'])) : ?>
+<?php if (isset($_POST['submit'])) : ?>
 
     <?php
-        if (!is_numeric($_POST['people']) && !is_numeric($_POST['pizzas']) && !is_numeric($_POST['slices'])) {
-            echo "<p>The values you entered aren't numbers. Please <a href='" . $_SERVER['PHP_SELF'] . "'>provide good input</a>!";
-        } else {
-            $people = $_POST['people'];
-            $pizzas = $_POST['pizzas'];
-            $slices = $_POST['slices'];
+    if (!is_numeric($_POST['people']) && !is_numeric($_POST['pizzas']) && !is_numeric($_POST['slices'])) {
+        echo "<p>The values you entered aren't numbers. Please <a href='" . $_SERVER['PHP_SELF'] . "'>provide good input</a>!";
+    } else {
+        $people = $_POST['people'];
+        $pizzas = $_POST['pizzas'];
+        $slices = $_POST['slices'];
 
-            $totalSlices = $pizzas * $slices;
-            $remainingSlices = $totalSlices % $people;
-            $slicesForEach = ($totalSlices - $remainingSlices) / $people;
+        $totalSlices = $pizzas * $slices;
+        $remainingSlices = $totalSlices % $people;
+        $slicesForEach = ($totalSlices - $remainingSlices) / $people;
 
-            echo "<p>{$people} people with {$pizzas} pizzas.</p>";
-            echo "<p>Each person gets {$slicesForEach} pieces of pizza.</p>";
-            echo "<p>There are {$remainingSlices} leftover pieces.</p>";
+        echo "<p>{$people} people with {$pizzas} pizzas.</p>";
+        echo "<p>Each person gets {$slicesForEach} pieces of pizza.</p>";
+        echo "<p>There are {$remainingSlices} leftover pieces.</p>";
 
-        }
+    }
     ?>
 
-    <?php else : ?>
+<?php else : ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
         <label for="people">How many people are at the party?</label>
@@ -52,6 +52,6 @@
         <input type="text" name="slices" id="slices">
         <input type="submit" name="submit" value="Give me pizza!">
     </form>
-    <?php endif;?>
+<?php endif;?>
 </body>
 </html>
